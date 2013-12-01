@@ -1,6 +1,6 @@
 {
   "name": "milkshake",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Extendable database migration tool for node.js",
   "bin": {
     "milkshake": "./bin/milkshake"
@@ -13,7 +13,8 @@
   "license": "MIT",
   "dependencies": {
     "optimist": "~0.6.0",
-    "xtend": "~2.1.1"
+    "xtend": "~2.1.1",
+    "spurt": "0.0.1"
   },
   "devDependencies": {},
   "keywords": [
