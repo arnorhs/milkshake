@@ -1,6 +1,6 @@
 {
   "name": "milkshake",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Extendable database migration tool for node.js",
   "main": "index.js",
   "scripts": {
