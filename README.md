@@ -17,6 +17,7 @@ Install using:
 ```
 npm install milkshake
 ```
+(To install globally use `npm install -g milkshake`)
 
 To setup a new migration folder:
 ```
