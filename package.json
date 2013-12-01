@@ -1,6 +1,6 @@
 {
   "name": "milkshake",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Extendable database migration tool for node.js",
   "bin": {
     "milkshake": "./bin/milkshake"

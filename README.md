@@ -50,6 +50,8 @@ milkshake --help
 - There might be some error cases we could handle better.
 - Commands for listing migrations that haven't been run.
 - Find better names for classes/files (ie. `setup` & `migrationer`).
+- Split the code up so there's greater separation between the shell script and the
+  migration logic.
 
 *Pull requests welcome*
 

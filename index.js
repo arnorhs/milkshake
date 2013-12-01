@@ -1,5 +1,4 @@
 var args = require('optimist').argv,
-    fs = require('fs'),
     shell = require('./lib/shell-helpers'),
     Migrationer = require('./lib/migrationer');
 
