@@ -1,0 +1,24 @@
+{
+  "name": "milkshake",
+  "version": "0.0.1",
+  "description": "extendable database migration tool for node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arnor Heidar Sigurdsson <arnorhs@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "optimist": "~0.6.0",
+    "xtend": "~2.1.1"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "migrate",
+    "database",
+    "db",
+    "migration",
+    "migrator",
+    "rails"
+  ]
+}
