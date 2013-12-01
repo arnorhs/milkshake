@@ -44,10 +44,11 @@ To see the full command line options:
 milkshake --help
 ```
 
-### TODO:
-- Write unit tests
+### TODO
+- Write unit tests.
 - There might be some error cases we could handle better.
-- Commands for listing migrations that haven't been run
+- Commands for listing migrations that haven't been run.
+- Find better names for classes/files (ie. `setup` & `migrationer`).
 
 *Pull requests welcome*
 
