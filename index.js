@@ -5,6 +5,11 @@ var args = require('optimist').argv,
 
 var command = args._.shift();
 
+if (command == 'version' || args.v || args.version) {
+    shell.print("Milkshake v" + require('./package.json').version);
+    process.exit();
+}
+
 if (command == 'help' || !command || args.help || args.h) {
     shell.printHelp();
     process.exit();

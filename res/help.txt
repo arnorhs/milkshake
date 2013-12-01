@@ -2,10 +2,11 @@
   Usage: milkshake [options] command
 
   Options:
-     -c, --chdir <path>  Change the working directory to a given migration
-                         directory. eg. /home/billybob/myapp/migrations
-                         If no path is given, it defaults to ./migrations
-     -h, --help          Show this help screen
+     -c, --chdir <path> Change the working directory to a given migration
+                        directory. eg. /home/billybob/myapp/migrations
+                        If no path is given, it defaults to ./migrations
+     -h, --help         Show this help screen
+     -v, --version      Displays the current version
 
   Commands:
      setup              Set up an initial migration directory and helper file(s)
@@ -14,9 +15,10 @@
      migrate:up [n]     Migrate up by n migrations (default 1)
      migrate:down [n]   Migrate down by n migrations (default 1)
 
-     list [n]           List last n (default all) existing migrations
+     list [n]           List last n (default all) existing migrations (not implemented
+                        yet)
      inactive           List migrations that haven't been applied (the ones that will
-                        if you run 'migrate')
+                        if you run 'migrate') (not implemented yet)
 
      new [title]        Create a new migration file with optional title
      generate [title]   Alias for 'new'

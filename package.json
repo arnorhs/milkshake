@@ -1,7 +1,7 @@
 {
   "name": "milkshake",
-  "version": "0.0.1",
-  "description": "extendable database migration tool for node.js",
+  "version": "0.0.2",
+  "description": "Extendable database migration tool for node.js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,5 +20,12 @@
     "migration",
     "migrator",
     "rails"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/arnorhs/milkshake.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arnorhs/milkshake/issues"
+  }
 }
