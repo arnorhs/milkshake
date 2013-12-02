@@ -1,13 +1,13 @@
 {
   "name": "milkshake",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Extendable database agnostic migration command line tool and mini-framework for node.js. Inspired by the Rails migrate tool and node-migrate.",
   "bin": {
     "milkshake": "./bin/milkshake"
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Arnor Heidar Sigurdsson <arnorhs@gmail.com>",
   "license": "MIT",
@@ -16,7 +16,9 @@
     "xtend": "~2.1.1",
     "spurt": "0.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "~1.14.0"
+  },
   "keywords": [
     "migrate",
     "database",
@@ -29,5 +31,8 @@
   },
   "bugs": {
     "url": "https://github.com/arnorhs/milkshake/issues"
+  },
+  "directories": {
+    "test": "test"
   }
 }
