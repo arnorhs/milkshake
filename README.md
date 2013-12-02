@@ -46,10 +46,10 @@ milkshake --help
 ```
 
 ### TODO
-- Write unit tests.
-- There might be some error cases we could handle better.
 - Adding commands for listing migrations that haven't been run.
 - Maybe the MigrationDir thing should be a more traditional class-like thing
+- Write more tests
+- There might be some error cases we could handle better.
 
 *Pull requests welcome*
 
