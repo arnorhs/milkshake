@@ -1,7 +1,7 @@
 var args = require('optimist').argv,
     shell = require('./lib/shell-helpers'),
     MigrationDir = require('./lib/migration-dir'),
-    Migrationer = require('./lib/migrationer');
+    MigrationRunner = require('./lib/migration-runner');
 
 var command = args._.shift();
 
@@ -31,21 +31,21 @@ if (!shellReady && command != 'setup') {
 }
 
 function migrateWrapper(offset) {
-    var migrationer = new Migrationer(new MigrationDir(dir));
-    migrationer.on('up', function(name) {
+    var runner = new MigrationRunner(new MigrationDir(dir));
+    runner.on('up', function(name) {
         shell.print("up: " + name);
     });
-    migrationer.on('down', function(name) {
+    runner.on('down', function(name) {
         shell.print("down: " + name);
     });
-    migrationer.on('complete', function(count) {
+    runner.on('complete', function(count) {
         shell.print('green', "Done. " + count + " migrations ran successfully");
     });
-    migrationer.on('error', function(err) {
+    runner.on('error', function(err) {
         shell.print("red", "Error in running migrations");
         shell.print(err.stack);
     });
-    migrationer.migrate(offset);
+    runner.migrate(offset);
 }
 
 switch (command) {

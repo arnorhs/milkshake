@@ -49,7 +49,7 @@ milkshake --help
 - Write unit tests.
 - There might be some error cases we could handle better.
 - Commands for listing migrations that haven't been run.
-- Find better names for classes/files (ie. `setup` & `migrationer`).
+- Find better names for classes/files (ie. `setup`).
 - Split the code up so there's greater separation between the shell script and the
   migration logic.
 
