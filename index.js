@@ -16,22 +16,22 @@ if (command == 'help' || !command || args.help || args.h) {
 }
 
 var customDir = args.c || args.chdir;
-var dir = shell.resolveDir(customDir);
+var migrationDir = MigrationDir(customDir);
 
 // If the intention was not to init, we want to make sure the directory
 // exists and has a file named 'init.js'
-var shellReady = shell.isReady(dir);
+var initialized = migrationDir.isInitialized();
 
-if (!shellReady && command != 'setup') {
-    shell.printSetupInstructions(dir, !!customDir);
+if (!initialized && command != 'init') {
+    shell.printInitInstructions(migrationDir.dir, !!customDir);
     process.exit(1);
-} else if (shellReady && command == 'setup') {
-    shell.print('red', "The specified migration directory (" + dir + ") already looks set up");
+} else if (initialized && command == 'init') {
+    shell.print('red', "The specified migration directory (" + migrationDir.dir + ") already looks initialized");
     process.exit(1);
 }
 
 function migrateWrapper(offset) {
-    var runner = new MigrationRunner(new MigrationDir(dir));
+    var runner = new MigrationRunner(migrationDir);
     runner.on('up', function(name) {
         shell.print("up: " + name);
     });
@@ -49,15 +49,15 @@ function migrateWrapper(offset) {
 }
 
 switch (command) {
-    case 'setup':
-        shell.setup(dir);
-        shell.print("green", "Migration folder was set up at '" + dir + "'");
+    case 'init':
+        migrationDir.initialize();
+        shell.print("green", "Migration folder was initialized at '" + migrationDir.dir + "'");
         break;
     case 'generate':
     case 'create':
     case 'new':
         var title = args._.join("_");
-        var path = shell.generate(dir, title);
+        var path = shell.generate(migrationDir.dir, title);
         shell.print("green", "Created " + path);
         break;
     case 'migrate':

@@ -19,9 +19,9 @@ npm install milkshake
 ```
 (To install globally use `npm install -g milkshake`)
 
-To setup a new migration folder:
+To initialize a new migration folder:
 ```
-milkshake setup
+milkshake init
 ```
 This will create an empty folder in your current working directory named `migrations`
 and include a setup.js file by default. (Hint: Look in lib/default-setup.js to see

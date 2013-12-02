@@ -9,7 +9,7 @@
      -v, --version      Displays the current version
 
   Commands:
-     setup              Set up an initial migration directory and helper file(s)
+     init               Initialize an initial migration directory and helper file(s)
 
      migrate            Migrate up to the latest migration
      migrate:up [n]     Migrate up by n migrations (default 1)
