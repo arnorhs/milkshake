@@ -1,5 +1,6 @@
 var args = require('optimist').argv,
     shell = require('./lib/shell-helpers'),
+    MigrationDir = require('./lib/migration-dir'),
     Migrationer = require('./lib/migrationer');
 
 var command = args._.shift();
@@ -30,7 +31,7 @@ if (!shellReady && command != 'setup') {
 }
 
 function migrateWrapper(offset) {
-    var migrationer = new Migrationer(dir);
+    var migrationer = new Migrationer(new MigrationDir(dir));
     migrationer.on('up', function(name) {
         shell.print("up: " + name);
     });
