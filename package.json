@@ -1,6 +1,6 @@
 {
   "name": "milkshake",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Extendable database agnostic migration command line tool and mini-framework for node.js. Inspired by the Rails migration tool and node-migrate.",
   "bin": {
     "milkshake": "./bin/milkshake"
