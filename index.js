@@ -61,7 +61,7 @@ switch (command) {
     case 'new':
         ensureInitialized();
         var title = args._.join("_");
-        var path = shell.generate(migrationDir.dir, title);
+        var path = migrationDir.generate(title);
         shell.print("green", "Created " + path);
         break;
     case 'migrate':
