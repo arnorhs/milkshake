@@ -14,14 +14,14 @@ the rails migration tool.
 ### Usage
 
 Install using:
-```
-npm install milkshake
+```sh
+$ npm install milkshake
 ```
 (To install globally use `npm install -g milkshake`)
 
 To initialize a new migration folder:
-```
-milkshake init
+```sh
+$ milkshake init
 ```
 This will create an empty folder in your current working directory named `migrations`
 and include a setup.js file by default. (Hint: Look in lib/default-setup.js to see
@@ -29,20 +29,20 @@ the methods you can override in your own setup file, eg. for inserting active
 migrations or removing from your own database).
 
 Create a new migration file:
-```
-milkshake new "Create table users"
+```sh
+$ milkshake new "Create table users"
 ```
 This will generate a new empty migration file named `<timestamp>-Create_table_users.js`
 in the `migrations` folder.
 
 To run the migration:
-```
-milkshake migrate
+```sh
+$ milkshake migrate
 ```
 
 To see the full command line options:
-```
-milkshake --help
+```sh
+$ milkshake --help
 ```
 
 ### TODO
