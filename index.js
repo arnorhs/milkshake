@@ -29,13 +29,15 @@ function ensureInitialized() {
     }
 }
 
-function migrateWrapper(offset) {
+// XXX time to move this to shell helpers?
+function migrateWrapper(offset, dry) {
+    var dryStr = dry ? " (dry run)" : "";
     var runner = new MigrationRunner(migrationDir);
     runner.on('up', function(name) {
-        shell.print("up: " + name);
+        shell.print("up: " + name + dryStr);
     });
     runner.on('down', function(name) {
-        shell.print("down: " + name);
+        shell.print("down: " + name + dryStr);
     });
     runner.on('complete', function(count) {
         shell.print('green', "Done. " + count + " migrations ran successfully");
@@ -44,7 +46,14 @@ function migrateWrapper(offset) {
         shell.print("red", "Error in running migrations");
         shell.print(err.stack);
     });
-    runner.migrate(offset);
+    runner.migrate(offset, dry);
+}
+
+var isDry = !!args.dry || !!args["dry-run"];
+
+if (isDry && ['init', 'generate', 'create', 'new'].indexOf(command) !== -1) {
+    shell.print("red", "Dry run not supported for '" + command + "'");
+    process.exit(1);
 }
 
 switch (command) {
@@ -64,22 +73,27 @@ switch (command) {
         var path = migrationDir.generate(title);
         shell.print("green", "Created " + path);
         break;
+    case 'list':
+        ensureInitialized();
+        shell.print("magenta", "These migrations would be run:");
+        migrateWrapper(Number.MAX_VALUE, true);
+        break;
     case 'migrate':
         ensureInitialized();
-        shell.print("magenta", "Migrating all the way up");
-        migrateWrapper(Number.MAX_VALUE);
+        shell.print("magenta", "Migrating all the way up" + (isDry ? " (dry run)" : ""));
+        migrateWrapper(Number.MAX_VALUE, isDry);
         break;
     case 'migrate:up':
         ensureInitialized();
         var count = parseInt(args._.shift() || 1, 10);
-        shell.print("magenta", "Migrating up " + count);
-        migrateWrapper(count);
+        shell.print("magenta", "Migrating up " + count + (isDry ? " (dry run)" : ""));
+        migrateWrapper(count, isDry);
         break;
     case 'migrate:down':
         ensureInitialized();
         var count = parseInt(args._.shift() || 1, 10);
-        shell.print("magenta", "Migrating down " + count);
-        migrateWrapper(-count);
+        shell.print("magenta", "Migrating down " + count + (isDry ? " (dry run)" : ""));
+        migrateWrapper(-count, isDry);
         break;
     default:
         shell.print('red', "Unknown command: " + command);
